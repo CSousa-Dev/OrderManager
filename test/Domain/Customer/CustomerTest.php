@@ -8,35 +8,25 @@ use PHPUnit\Framework\TestCase;
 class CustomerTest extends TestCase
 {
 
-  public function testThrowExceptionIfNameIsEmpty()
+  /**
+   * @dataProvider incorrectsNamesGenerator
+   */
+  public function testThrowExceptionIfNameIsInvalid(string $invalidCustomerName, string $errorMessage)
   {
     $this->expectException(\InvalidArgumentException::class);
-    $this->expectExceptionMessage('É necessário informar nome e sobrenome para um cliente.');
+    $this->expectExceptionMessage($errorMessage);
     
-    new Customer('');
+    new Customer($invalidCustomerName);
   }
 
-  public function testThrowExceptionIfLastNameIsMissing()
+
+  public static function incorrectsNamesGenerator()
   {
-    $this->expectException(\InvalidArgumentException::class);
-    $this->expectExceptionMessage('É necessário informar nome e sobrenome para um cliente.');
-
-    new Customer('first');
-  }
-
-  public function testThrowExceptionIfNameIsTooShort()
-  {
-    $this->expectException(\InvalidArgumentException::class);
-    $this->expectExceptionMessage('O nome informado é muito curto!');
-
-    new Customer('xxx xxx');
-  }
-
-  public function testThrowExceptionIfNameIsTooLong()
-  {
-    $this->expectException(\InvalidArgumentException::class);
-    $this->expectExceptionMessage('O nome informado é muito longo!');
-
-    new Customer('xxx xxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx');
+    return  [
+      "EmptyName" => ['', 'É necessário informar nome e sobrenome para um cliente.'],
+      "MissingLastName" => ['Renato', 'É necessário informar nome e sobrenome para um cliente.'],
+      "TooShortName" => ['Ren ato', 'O nome informado é muito curto!'],
+      "TooLongName" => ['xxx xxxxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxx xxxxxxxxxxxxxxxxx', 'O nome informado é muito longo!']
+    ];
   }
 } 
