@@ -6,12 +6,12 @@ Casos de teste para o nome:
 [X] Quando eu tentar criar um cliente cujo a soma dos caracteres do nome e sobrenome for maior que 55 a seguinte excessão deve ser lançada: "O nome informado é muito longo!"
 
 Casos de teste para o email: 
-[] Caso informe um email nesse padrão @email.com ou nome@ a seguinte excessão deve ser lançada: "O endereço de e-mail informado não está completo, informe um endereço de e-mail válido"
+[] Caso informe um email nesse padrão @email.com ou nome@ a seguinte excessão deve ser lançada: "O endereço de e-mail informado não está completo, informe um endereço de e-mail válido!"
 [] Caso o email possua menos que 8 caracteres a seguinte excessão deve ser lançada: "O endereço de e-mail informado é muito curto!"
-[] Caso o email possua mais que 255 caractere a seguinte excessão deve ser lançada: "O endereço de e-mail informado é muito longo!"
+[] Caso o email possua mais que 55 caractere a seguinte excessão deve ser lançada: "O endereço de e-mail informado é muito longo!"
 
 Casos de teste para o CPF:
-[] Caso informe um CPF com menos ou com mais que 11 digitos a seguinte excessão deve ser lançada: "O CPF deve possuir 11 digitos"
-[] Caso informe um CPF contendo letras a seguinte excessão deve ser lançada: "O CPF deve possuir apenas números";
-[] Caso informe um CPF contendo todos os 11 numeros iguais a seguinte excessão deve ser lançada: "O CPF do cliente informado possui todos os digitos iguais!"
-[] Caso informe um CPF que não passe na regra de validação a seguinte excessão deve ser lançada: "O CPF informado não é valido!"
+[X] Caso informe um CPF com menos ou com mais que 11 digitos a seguinte excessão deve ser lançada: "O CPF deve possuir 11 digitos"
+[X] Caso informe um CPF contendo letras a seguinte excessão deve ser lançada: "O CPF deve possuir apenas números";
+[X] Caso informe um CPF contendo todos os 11 numeros iguais a seguinte excessão deve ser lançada: "O CPF informado possui todos os digitos iguais!"
+[X] Caso informe um CPF que não passe na regra de validação a seguinte excessão deve ser lançada: "O CPF informado não é valido!"

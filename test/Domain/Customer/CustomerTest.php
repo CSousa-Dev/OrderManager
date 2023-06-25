@@ -9,18 +9,23 @@ class CustomerTest extends TestCase
 {
 
   /**
-   * @dataProvider incorrectsNamesGenerator
+   * @dataProvider invalidNamesList
    */
   public function testThrowExceptionIfNameIsInvalid(string $invalidCustomerName, string $errorMessage)
   {
-    $this->expectException(\InvalidArgumentException::class);
+    $this->expectException(\DomainException::class);
     $this->expectExceptionMessage($errorMessage);
     
     new Customer($invalidCustomerName);
   }
 
+  public function testValidNameReturn()
+  {
+    $customer = new Customer('Renato Sousa');
+    $this->assertEquals('Renato Sousa', $customer->name());
+  }
 
-  public static function incorrectsNamesGenerator()
+  public static function invalidNamesList()
   {
     return  [
       "EmptyName" => ['', 'É necessário informar nome e sobrenome para um cliente.'],

@@ -23,7 +23,7 @@ class Customer
   private function checkIfNameIsEmpty(string $name)
   {
     if(empty($name)){
-      throw new \InvalidArgumentException('É necessário informar nome e sobrenome para um cliente.');
+      throw new \DomainException('É necessário informar nome e sobrenome para um cliente.');
     }
   }
 
@@ -32,25 +32,30 @@ class Customer
     $numberOfWords = count(explode(' ', $name));
     if($numberOfWords < 2)
     {
-      throw new \InvalidArgumentException('É necessário informar nome e sobrenome para um cliente.');
+      throw new \DomainException('É necessário informar nome e sobrenome para um cliente.');
     }
   }
 
-  public function checkIfNameIsTooShort(string $name)
+  private function checkIfNameIsTooShort(string $name)
   {
     $numberOfLetters = strlen($name);
     if($numberOfLetters < 8)
     {
-      throw new \InvalidArgumentException('O nome informado é muito curto!');
+      throw new \DomainException('O nome informado é muito curto!');
     }
   }
 
-  public function checkIfNameIsTooLong(string $name)
+  private function checkIfNameIsTooLong(string $name)
   {
     $numberOfLetters = strlen($name);
     if($numberOfLetters > 55)
     {
-      throw new \InvalidArgumentException('O nome informado é muito longo!');
+      throw new \DomainException('O nome informado é muito longo!');
     }
+  }
+
+  public function name()
+  {
+    return $this->name;
   }
 }
