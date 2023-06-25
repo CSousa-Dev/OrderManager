@@ -10,6 +10,8 @@ class Email
     $this->validateMailAddress($address);
     $this->checkIfEmailIsTooShort($address);
     $this->checkIfEmailIsTooLong($address);
+
+    $this->address = $address;
   }
 
   private function validateMailAddress($address)

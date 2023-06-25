@@ -1,14 +1,19 @@
 <?php
 
 namespace OrderManager\Domain\Customer;
+use OrderManager\Domain\Customer\{Cpf, Email};
 
 class Customer 
 {
   private string $name;
+  private Cpf $cpf;
+  private Email $email;
 
-  public function __construct(string $name)
+  public function __construct(string $name, string $emailAddress, string $cpf)
   {
     $this->validateName($name);
+    $this->cpf = new Cpf($cpf);
+    $this->email = new Email($emailAddress);
     $this->name = $name;
   }
 
@@ -58,4 +63,16 @@ class Customer
   {
     return $this->name;
   }
+
+  public function email()
+  {
+    return $this->email;
+  }
+
+  public function cpf()
+  {
+    return $this->cpf;
+  }
+
+
 }

@@ -19,6 +19,12 @@ class EmailTest extends TestCase
     new Email($invalidEmailAdress);
   }
 
+  public function testValidEmailReturn()
+  {
+    $email = new Email('renato@renato.com');
+    $this->assertEquals('renato@renato.com', $email);
+  }
+
   public static function invalidEmailList()
   {
     return [

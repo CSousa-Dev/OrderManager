@@ -7,6 +7,8 @@ use PHPUnit\Framework\TestCase;
 
 class CustomerTest extends TestCase
 {
+  private string $validEmailAddress = 'renato@renato.com';
+  private string $validCpfNumber = '668.498.850-57';
 
   /**
    * @dataProvider invalidNamesList
@@ -15,14 +17,27 @@ class CustomerTest extends TestCase
   {
     $this->expectException(\DomainException::class);
     $this->expectExceptionMessage($errorMessage);
-    
-    new Customer($invalidCustomerName);
+    new Customer($invalidCustomerName, $this->validEmailAddress, $this->validCpfNumber);
   }
 
   public function testValidNameReturn()
   {
-    $customer = new Customer('Renato Sousa');
+    $customer = new Customer('Renato Sousa', $this->validEmailAddress, $this->validCpfNumber);
     $this->assertEquals('Renato Sousa', $customer->name());
+  }
+
+  public function testGetCustomerCpf()
+  { 
+    $customer = new Customer('Renato Sousa', $this->validEmailAddress, $this->validCpfNumber);
+    $cpfWithoutDotAndDash = preg_replace('/[.-]/', '' , $this->validCpfNumber);
+
+    $this->assertEquals($cpfWithoutDotAndDash, $customer->cpf());
+  }
+
+  public function testGetCustomerEmail()
+  {
+    $customer = new Customer('Renato Sousa', $this->validEmailAddress, $this->validCpfNumber);
+    $this->assertEquals($this->validEmailAddress, $customer->email());
   }
 
   public static function invalidNamesList()
