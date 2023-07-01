@@ -20,14 +20,24 @@ class CustomerTest extends TestCase
     new Customer($invalidCustomerName, $this->validEmailAddress, $this->validCpfNumber);
   }
 
-  public function testValidNameReturn()
+  public function testGetCustomerName()
   {
     $customer = new Customer('Renato Sousa', $this->validEmailAddress, $this->validCpfNumber);
-    $formatedCpf = preg_replace('/[.-]/', '' , $this->validCpfNumber);
-
     $this->assertEquals('Renato Sousa', $customer->name());
+  }
+
+  public function testGetCustomerCpf()
+  { 
+    $customer = new Customer('Renato Sousa', $this->validEmailAddress, $this->validCpfNumber);
+    $cpfWithoutDotAndDash = preg_replace('/[.-]/', '' , $this->validCpfNumber);
+
+    $this->assertEquals($cpfWithoutDotAndDash, $customer->cpf());
+  }
+
+  public function testGetCustomerEmail()
+  {
+    $customer = new Customer('Renato Sousa', $this->validEmailAddress, $this->validCpfNumber);
     $this->assertEquals($this->validEmailAddress, $customer->email());
-    $this->assertEquals($formatedCpf, $customer->cpf());
   }
 
   public static function invalidNamesList()
