@@ -40,9 +40,16 @@ Trait DataValidator
     }
   }
   
-  private function throwExceptionIfValueIsEmpty(mixed $value, string $exceptionMessage)
+  private function merge(mixed $value, string $exceptionMessage)
   {
     if(empty($value)){
+      throw new \DomainException($exceptionMessage);
+    }
+  }
+
+  private function throwExceptionIfValueLessThan(float $value, float $lessThan, string $exceptionMessage)
+  {
+    if($value < $lessThan){
       throw new \DomainException($exceptionMessage);
     }
   }
