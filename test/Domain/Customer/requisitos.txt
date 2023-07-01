@@ -6,9 +6,9 @@ Casos de teste para o nome:
 [X] Quando eu tentar criar um cliente cujo a soma dos caracteres do nome e sobrenome for maior que 55 a seguinte excessão deve ser lançada: "O nome informado é muito longo!"
 
 Casos de teste para o email: 
-[] Caso informe um email nesse padrão @email.com ou nome@ a seguinte excessão deve ser lançada: "O endereço de e-mail informado não está completo, informe um endereço de e-mail válido!"
-[] Caso o email possua menos que 8 caracteres a seguinte excessão deve ser lançada: "O endereço de e-mail informado é muito curto!"
-[] Caso o email possua mais que 55 caractere a seguinte excessão deve ser lançada: "O endereço de e-mail informado é muito longo!"
+[X] Caso informe um email nesse padrão @email.com ou nome@ a seguinte excessão deve ser lançada: "O endereço de e-mail informado não está completo, informe um endereço de e-mail válido!"
+[X] Caso o email possua menos que 8 caracteres a seguinte excessão deve ser lançada: "O endereço de e-mail informado é muito curto!"
+[X] Caso o email possua mais que 55 caractere a seguinte excessão deve ser lançada: "O endereço de e-mail informado é muito longo!"
 
 Casos de teste para o CPF:
 [X] Caso informe um CPF com menos ou com mais que 11 digitos a seguinte excessão deve ser lançada: "O CPF deve possuir 11 digitos"
