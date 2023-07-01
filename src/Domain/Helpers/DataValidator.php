@@ -46,4 +46,11 @@ Trait DataValidator
       throw new \DomainException($exceptionMessage);
     }
   }
+
+  private function throwExceptionIfValueLessThan(float $value, float $lessThan, string $exceptionMessage)
+  {
+    if($value < $lessThan){
+      throw new \DomainException($exceptionMessage);
+    }
+  }
 } 
