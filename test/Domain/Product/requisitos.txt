@@ -1,0 +1,12 @@
+Um produto precisa possuir
+
+Precisa possuir um identificador único
+Precisa possuir um nome 
+Precisa possuir um preço
+Precisa possuir uma descrição
+
+[X] O nome não pode possuir menos que 8 caracteres e mais que 55
+[X] O preço não pode ser menor ou igual a 0
+[X] A descrição deve possuir no mínimo 55 caracteres e no máximo 255
+[X] O identificador deve possuir 13 caracteres
+[] O identificador deve ser gerado automaticamente e apenas uma vez

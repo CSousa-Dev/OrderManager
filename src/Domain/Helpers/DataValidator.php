@@ -40,7 +40,7 @@ Trait DataValidator
     }
   }
   
-  private function merge(mixed $value, string $exceptionMessage)
+  private function throwExceptionIfValueIsEmpty(mixed $value, string $exceptionMessage)
   {
     if(empty($value)){
       throw new \DomainException($exceptionMessage);
