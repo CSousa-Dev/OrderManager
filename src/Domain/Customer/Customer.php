@@ -2,9 +2,12 @@
 
 namespace OrderManager\Domain\Customer;
 use OrderManager\Domain\Customer\{Cpf, Email};
+use OrderManager\Domain\Helpers\DataValidator;
 
 class Customer 
 {
+  use DataValidator;
+
   private string $name;
   private Cpf $cpf;
   private Email $email;
@@ -19,17 +22,10 @@ class Customer
 
   private function validateName(string $name)
   {
-    $this->checkIfNameIsEmpty($name);
+    $this->throwExceptionIfValueIsEmpty($name, 'É necessário informar nome e sobrenome para um cliente.');
     $this->checkIfLastNameIsMissing($name);
-    $this->checkIfNameIsTooShort($name);
-    $this->checkIfNameIsTooLong($name);
-  }
-
-  private function checkIfNameIsEmpty(string $name)
-  {
-    if(empty($name)){
-      throw new \DomainException('É necessário informar nome e sobrenome para um cliente.');
-    }
+    $this->throwExceptionIfStringValueLessThan($name, 8, 'O nome informado é muito curto!');
+    $this->throwExceptionIfStringValueGreaterThan($name, 55, 'O nome informado é muito longo!');
   }
 
   private function checkIfLastNameIsMissing(string $name)
@@ -38,24 +34,6 @@ class Customer
     if($numberOfWords < 2)
     {
       throw new \DomainException('É necessário informar nome e sobrenome para um cliente.');
-    }
-  }
-
-  private function checkIfNameIsTooShort(string $name)
-  {
-    $numberOfLetters = strlen($name);
-    if($numberOfLetters < 8)
-    {
-      throw new \DomainException('O nome informado é muito curto!');
-    }
-  }
-
-  private function checkIfNameIsTooLong(string $name)
-  {
-    $numberOfLetters = strlen($name);
-    if($numberOfLetters > 55)
-    {
-      throw new \DomainException('O nome informado é muito longo!');
     }
   }
 
@@ -73,6 +51,4 @@ class Customer
   {
     return $this->cpf;
   }
-
-
 }
