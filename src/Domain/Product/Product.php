@@ -3,7 +3,7 @@
 namespace OrderManager\Domain\Product;
 use OrderManager\Domain\Helpers\DataValidator;
 
-class Product 
+class Product implements ProductInterface
 {
   use DataValidator;
 
@@ -62,22 +62,22 @@ class Product
     $this->throwExceptionIfLengthValueNotEqualTo($uuid, 13, 'O id do produto informado não é valido!');
   }
 
-  public function name()
+  public function name(): string
   {
     return $this->name;
   }
 
-  public function description()
+  public function description(): string
   {
     return $this->description;
   }
 
-  public function price()
+  public function price(): string
   {
     return $this->price;
   }
 
-  public function id()
+  public function id(): string
   {
     return $this->uuid;
   }
