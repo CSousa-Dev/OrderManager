@@ -1,0 +1,18 @@
+Um pedido deve ter
+[] Lista de produtos
+[] Um identificador
+[] Um cliente
+[] Soma do total dos produtos
+[] Ação de adicionar e remover produtos da Lista
+[] Ação de aumentar ou diminuir a quantidade de cada produto da Lista
+[] Quantidade total de produtos da Lista
+
+Regras
+[] Não podem existir produtos duplicados na Lista
+[] Não podem existir produtos com quantidade zeradas na Lista
+[] Apenas um pedido aberto pode ser alterado
+[] Pedidos finalizados devem ser apenas leitura, porém podem ser cancelados
+[] Pedidos cancelados não podem ser reabertos e nem finalizados
+[] Deve ser possível alterar o cliente
+
+
